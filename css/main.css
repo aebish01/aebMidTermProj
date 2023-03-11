@@ -1,0 +1,19 @@
+h1 {
+    color: blue;
+}
+.container {
+    border: 2px solid black;
+}
+.row {
+    border: 1px none none dashed none black;
+}
+.col {
+    border: 1px dashed black;
+}
+select {
+    width: 50%;
+    margin: 5px;
+}
+option {
+    font-size: 12px;
+}
