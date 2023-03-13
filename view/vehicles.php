@@ -2,33 +2,38 @@
 <?php include('header.html'); ?>
 <!----- filter section---->
 <section class="filters">
-<select name="makeId">
-    <option value="">Make</option>
-    <?php foreach($makes as $make) : ?>
-        <option value="<?= $make['ID'] ?>">
-            <?= $make['Make'] ?>
-        </option>
-    <?php endforeach ?>
-</select>
-<br>
-<select name="typeId">
-    <option value="">Type</option>
-    <?php foreach($types as $type) : ?>
-        <option value="<?= $type['ID'] ?>">
-            <?= $type['Type'] ?>
-        </option>
-    <?php endforeach ?>
-</select>
-<br>
-<select name="" id="">
-    <option value="">Class</option>
-    <?php foreach($classes as $class) : ?>
-        <option value="<?= $class['ID'] ?>">
-            <?= $class['Class'] ?>
-        </option>
-    <?php endforeach ?>
-</select>
+    <!----Get info---->
+    <form method="GET">
+    <select name="makeId">
+        <option value="">Make</option>
+        <?php foreach($makes as $make) : ?>
+            <option value="<?= $make['ID'] ?>" <?php if(isset($_GET['makeId']) && $_GET['makeId'] == $make['ID']) echo "selected" ?>>
+                <?= $make['Make'] ?>
+            </option>
+        <?php endforeach ?>
+    </select>
+        <br>
+        <select name="typeId">
+            <option value="">Type</option>
+            <?php foreach($types as $type) : ?>
+                <option value="<?= $type['ID'] ?>" <?php if(isset($_GET['typeId']) && $_GET['typeId'] == $type['ID']) echo "selected" ?>>
+                    <?= $type['Type'] ?>
+                </option>
+            <?php endforeach ?>
+        </select>
+        <br>
+        <select name="" id="">
+            <option value="">Class</option>
+            <?php foreach($classes as $class) : ?>
+                <option value="<?= $class['ID'] ?>" <?php if(isset($_GET['classId']) && $_GET['classId'] == $class['ID']) echo "selected" ?>>
+                    <?= $class['Class'] ?>
+                </option>
+            <?php endforeach ?>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
 </section>
+
 <!-----display---->
 <section class="displayRows">
     <div class="container">
@@ -52,7 +57,15 @@
                 <p class="bold">Price</p>
             </div>
         </div>
-        <?php foreach($vehicles as $vehicle) : ?>
+        <?php 
+            //$makeId = isset($_GET['makeId']) ? $_GET['makeId'] : '';
+            // $typeId = isset($_GET['typeId']) ? $_GET['typeId'] : '';
+            // $classId = isset($_GET['classId']) ? $_GET['classId'] : '';
+
+            //$vehicles = getFilteredVehicles($makeId, $typeId, $classId);
+
+            foreach($vehicles as $vehicle) : 
+        ?>
             <div class="row">
                 <div class="col">
                     <p><?php echo $vehicle['year'] ?></p>

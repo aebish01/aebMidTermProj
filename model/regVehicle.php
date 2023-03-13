@@ -75,4 +75,16 @@ function getClass() {
     $statement->closeCursor();
     return $classes;
 }
+function getFilteredVehicles($makeID, $typeID, $classID) {
+    global $db;
+    $query = 'SELECT * FROM vehicles WHERE (:makeId IS NULL OR make_id = :makeId) AND (:typeId IS NULL OR type_id = :typeId) AND (:classId IS NULL OR class_id = :classId)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':makeId', $makeID);
+    $statement->bindValue(':typeId', $typeID);
+    $statement->bindValue(':classId', $classID);
+    $statement->execute();
+    $getVehicles = $statement->fetchAll();
+    $statement->closeCursor();
+    return $getVehicles;
+}
 ?>
