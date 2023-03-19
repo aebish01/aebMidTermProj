@@ -1,5 +1,5 @@
 <!-----add header---->
-<?php include('header.html'); ?>
+<?php include('admin_header.html'); ?>
 <!----- filter section---->
 <section class="filters">
     <!----Get info---->
@@ -98,6 +98,12 @@
             </div>
         <?php endforeach ?>
     </div>
+</section>
+<section class="links">
+    <a href=".?action=displayMake">View/Edit Makes</a>
+    <a href=".?action=displayType">View/Edit Types</a>
+    <a href=".?action=displayClass">View/Edit Class</a>
+    <a href=".?action=addVehicle">Add Vehicles</a>
 </section>
 <!---footer--->
 <?php include('footer.html') ?>

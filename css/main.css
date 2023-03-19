@@ -17,3 +17,6 @@ select {
 option {
     font-size: 12px;
 }
+.radios {
+    margin-left: 30%;
+}
