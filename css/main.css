@@ -20,3 +20,11 @@ option {
 .radios {
     margin-left: 30%;
 }
+.container-small {
+    margin-left: 20px;
+    width: 200px;
+}
+.dbutton {
+    background-color: red;
+    color: white;
+}

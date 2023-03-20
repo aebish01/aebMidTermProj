@@ -63,15 +63,13 @@
             <div class="col">
                 <p class="bold">Price</p>
             </div>
+            <div class="col">
+                <p class="bold">Delete</p>
+            </div>
         </div>
         <?php 
-            //$makeId = isset($_GET['makeId']) ? $_GET['makeId'] : '';
-            // $typeId = isset($_GET['typeId']) ? $_GET['typeId'] : '';
-            // $classId = isset($_GET['classId']) ? $_GET['classId'] : '';
-
-            //$vehicles = getFilteredVehicles($makeId, $typeId, $classId);
-
-            foreach($vehicles as $vehicle) : 
+            if(!empty($vehicles)) {
+                foreach($vehicles as $vehicle) :
         ?>
             <div class="row">
                 <div class="col">
@@ -95,15 +93,23 @@
                 <div class="col">
                     <p><?php echo $vehicle['price'] ?></p>
                 </div>
+                <div class="col">
+                    <form action="." method="POST">
+                    <input type="hidden" name="action" value="deleteVehicle">
+                    <input type="hidden" name="vehIDnum" value="<?= $vehicle['vehicleID'] ?>">
+                    <button class="dbutton">Delete</button>
+                </div>
             </div>
         <?php endforeach ?>
+        <?php } ?>
     </div>
 </section>
 <section class="links">
-    <a href=".?action=displayMake">View/Edit Makes</a>
-    <a href=".?action=displayType">View/Edit Types</a>
+    <a href=".?action=addVehicle">Add Vehicles</a><br>
+    <a href=".?action=displayMake">View/Edit Makes</a><br>
+    <a href=".?action=displayType">View/Edit Types</a><br>
     <a href=".?action=displayClass">View/Edit Class</a>
-    <a href=".?action=addVehicle">Add Vehicles</a>
+    
 </section>
 <!---footer--->
 <?php include('footer.html') ?>

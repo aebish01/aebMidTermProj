@@ -8,17 +8,17 @@
             </div>
         </div>
         <?php 
-        if(!empty($makes)) {
-            foreach($makes as $make) :
+        if(!empty($classes)) {
+            foreach($classes as $class) :
             ?>
             <div class="row">
                 <div class="col">
-                    <p><?php echo $make['Make'] ?></p>
+                    <p><?php echo $class['Class'] ?></p>
                 </div>
                 <div class="col">
                     <form action="." method="POST">
-                    <input type="hidden" name="action" value="deleteMake">
-                    <input type="hidden" name="makeIDnum" value="<?= $make['ID'] ?>">
+                    <input type="hidden" name="action" value="deleteClass">
+                    <input type="hidden" name="classIDNum" value="<?= $class['ID'] ?>">
                     <button class="dbutton">Delete</button>
                 </div>
             </div>
@@ -33,7 +33,7 @@
     <form action="." method="POST">
         <div class="addinput">
             <label>Name:</label><br>
-            <input type="text" name="addMake" maxlength="20" placeholder="Make">
+            <input type="text" name="addClass" maxlength="20" placeholder="Class">
         </div>
     </form>
 </section>

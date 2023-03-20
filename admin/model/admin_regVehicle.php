@@ -103,6 +103,13 @@ function getFilteredVehicles($makeID, $typeID, $classID, $YPfilter) {
     $statement->closeCursor();
     return $getVehicles;
 }
-
+function deleteVehicle($vehicleIdNum){
+    global $db;
+    $query = 'DELETE FROM vehicles WHERE vehicleID = :vehIDnum';
+    $statement = $db->prepare($query);
+    $statement->bindValue(":vehIDnum", $vehicleIdNum);
+    $statement->execute();
+    $statement->closeCursor();        
+}
 
 ?>
