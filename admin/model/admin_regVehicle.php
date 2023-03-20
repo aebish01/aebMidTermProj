@@ -111,5 +111,18 @@ function deleteVehicle($vehicleIdNum){
     $statement->execute();
     $statement->closeCursor();        
 }
+function addVehichle($year, $model, $price, $typeID, $classID, $makeID) {
+    global $db;
+    $query = 'INSERT INTO vehicles (year, model, price, type_id, class_id, make_id) VALUES (:year, :model, :price, :typeID, :classID, :makeID)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':year', $year);
+    $statement->bindValue(':model', $model);
+    $statement->bindValue(':price', $price);
+    $statement->bindValue(':typeID', $typeID);
+    $statement->bindValue(':classID', $classID);
+    $statement->bindValue(':makeID', $makeID);
+    $statement->execute();
+    $statement->closeCursor();
+}
 
 ?>

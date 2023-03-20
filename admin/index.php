@@ -18,6 +18,12 @@ $classIdNum = filter_input(INPUT_POST, 'classIDNum', FILTER_VALIDATE_INT);
 $addMake = filter_input(INPUT_POST, 'addMake', FILTER_UNSAFE_RAW);
 $addTypes = filter_input(INPUT_POST, 'addTypes', FILTER_UNSAFE_RAW);
 $addClass = filter_input(INPUT_POST, 'addClass', FILTER_UNSAFE_RAW);
+$year = filter_input(INPUT_POST, 'year', FILTER_VALIDATE_INT);
+$model = filter_input(INPUT_POST, 'model', FILTER_UNSAFE_RAW);
+$price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_INT);
+$typeID = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
+$classID = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
+$makeID = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
 
 if($makeId && $typeId && $classId && $radiofilter) {
     $vehicles = getFilteredVehicles($makeId, $typeId, $classId, $radiofilter);
@@ -64,6 +70,9 @@ if($makeId && $typeId && $classId && $radiofilter) {
 } elseif($addClass) {
     addClass($addClass);
     header('Location: http://localhost/aebMidTermProj/admin/?action=displayClass');
+} elseif($year && $model && $price && $typeID && $classID && $makeID) {
+    addVehichle($year, $model, $price, $typeID, $classID, $makeID);
+    header('Location: http://localhost/aebMidTermProj/admin/');
 } else {
         $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW);
     if (!$action) {
@@ -99,6 +108,11 @@ if($makeId && $typeId && $classId && $radiofilter) {
             include('view/admin_classes.php');
             break;
         case "addVehicle" :
+            $makes = getMake();
+            $types = getTypes();
+            $classes = getClass();
+            include('view/addVehicle.php');
+            break;
         default:
             $vehicles = displayVehicles();
             $makes = getMake();
