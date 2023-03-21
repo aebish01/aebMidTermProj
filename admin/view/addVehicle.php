@@ -45,3 +45,13 @@
         <button>Add Vehicle</button>
     </form>
 </section>
+
+<section class="links">
+    <a href="http://localhost/aebMidTermProj/admin">View all Vehicles</a><br>
+    <a href=".?action=addVehicle">Add Vehicles</a><br>
+    <a href=".?action=displayMake">View/Edit Makes</a><br>
+    <a href=".?action=displayType">View/Edit Types</a><br>
+    <a href=".?action=displayClass">View/Edit Class</a>
+</section>
+
+<?php include('footer.html') ?>
