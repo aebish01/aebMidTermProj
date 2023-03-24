@@ -35,7 +35,8 @@ if($makeId && $typeId && $classId && $radiofilter) {
     include('view/vehicles.php');
 } elseif($makeId) {
     $vehicles = getFilteredVehicles($makeId, null, null, $radiofilter);
-    include('view/vehicles.php');
+    //include('view/vehicles.php');
+    header('Location: http://aebmidterm.herokuapp.com');
 } elseif($typeId) {
     $vehicles = getFilteredVehicles(null, $typeId, null, $radiofilter);
     include('view/vehicles.php');
