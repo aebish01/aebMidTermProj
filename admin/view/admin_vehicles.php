@@ -3,11 +3,11 @@
 <!----- filter section---->
 <section class="filters">
     <!----Get info---->
-    <form method="GET">
+    <form method="POST">
     <select name="makeId">
         <option value="">Make</option>
         <?php foreach($makes as $make) : ?>
-            <option value="<?= $make['ID'] ?>" <?php if(isset($_GET['makeId']) && $_GET['makeId'] == $make['ID']) echo "selected" ?>>
+            <option value="<?= $make['ID'] ?>" <?php if(isset($_POST['makeId']) && $_POST['makeId'] == $make['ID']) echo "selected" ?>>
                 <?= $make['Make'] ?>
             </option>
         <?php endforeach ?>
