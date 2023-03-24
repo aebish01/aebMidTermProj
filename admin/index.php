@@ -7,7 +7,7 @@ require('model/admin_regVehicle.php');
 require('model/admin_types.php');
 require('model/admin_class.php');
 
-$makeId = isset($_GET['makeId']) ? $_GET['makeId'] : '';
+$makeId = isset($_POST['makeId']) ? $_POST['makeId'] : '';
 $typeId = isset($_GET['typeId']) ? $_GET['typeId'] : '';
 $classId = isset($_GET['classId']) ? $_GET['classId'] : '';
 $radiofilter = isset($_POST['filter']);
