@@ -84,7 +84,8 @@ if($makeId && $typeId && $classId && $radiofilter) {
     switch ($action) {
         case "deleteVehicle" :
             deleteVehicle($vehicleIdNum);
-            include('view/admin_vehicles.php');
+            //include('view/admin_vehicles.php');
+            header('Location: http://aebmidterm.herokuapp.com/admin/');
         case "deleteMake" :
             deleteMake($makeIdNum);
             header('Location: http://aebmidterm.herokuapp.com/admin/?action=displayMake');
